@@ -1,0 +1,30 @@
+public class Inorder {
+    public static void main(String[] args) {
+        Node root=new Node(10);
+        root.left=new Node(20);
+        root.right=new Node(30);
+        root.left.left=new Node(40);
+        root.left.right=new Node(50);
+        root.right.left=new Node(60);
+        inorder(root);
+    }
+    public static void inorder(Node root){
+        if(root==null){
+            return;
+        }
+        inorder(root.left);
+        System.out.print(root.data+" ");
+        inorder(root.right);
+    }
+}
+class Node {
+    public int data;
+    public Node left;
+    public Node right;
+    public Node(int data)
+    {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
