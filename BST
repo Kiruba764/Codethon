@@ -1,0 +1,40 @@
+import java.util.*;
+public class Main {
+
+    static boolean binarySearchTree(Node node)
+    {
+        if (node == null) {
+            return true;
+        }
+        if (node.left != null
+                && node.left.data > node.data) {
+            return false;
+        }
+        if (node.right != null
+                && node.right.data < node.data) {
+            return false;
+        }
+        if (binarySearchTree(node.left) == false
+                || binarySearchTree(node.right) == false) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args)
+    {
+        Node root = new Node(10);
+        root.left = new Node(7);
+        root.right = new Node(12);
+        root.left.left = new Node(6);
+        root.left.right = new Node(9);
+        root.right.left = new Node(2);
+        root.right.right = new Node(15);
+        if (binarySearchTree(root)) {
+            System.out.print("It is a Binary Search Tree");
+        }
+        else {
+            System.out.print("It is not a Binary Search tree");
+        }
+    }
+}
